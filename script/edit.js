@@ -83,7 +83,6 @@ function showEditForm(petId) {
   document.getElementById("input-weight").value = pet.weight;
   document.getElementById("input-length").value = pet.length;
   document.getElementById("input-color-1").value = pet.color;
-  document.getElementById("input-breed").value = pet.breed;
   document.getElementById("input-vaccinated").checked = pet.vaccinated;
   document.getElementById("input-dewormed").checked = pet.dewormed;
   document.getElementById("input-sterilized").checked = pet.sterilized;
@@ -93,12 +92,18 @@ function showEditForm(petId) {
 
   // Cập nhật danh sách Breed trong select
   const breedSelect = document.getElementById("input-breed");
-  breedSelect.innerHTML = "";
+  breedSelect.innerHTML = ""; // Xóa các tùy chọn hiện tại
+
+  // Tạo các tùy chọn mới từ danh sách Breed tương ứng
   breedOptions.forEach((breed) => {
     const option = document.createElement("option");
     option.textContent = breed;
+    option.value = breed; // Đặt giá trị cho tùy chọn
     breedSelect.appendChild(option);
   });
+
+  // Chọn giá trị Breed tương ứng với thú cưng
+  breedSelect.value = pet.breed;
 }
 
 // Hàm lấy danh sách các Breed tương ứng với Type
@@ -192,7 +197,7 @@ document.getElementById("submit-btn").addEventListener("click", function () {
   document.getElementById("input-type").value = "Select Type";
   document.getElementById("input-weight").value = "";
   document.getElementById("input-length").value = "";
-  document.getElementById("input-color-1").value = "";
+  document.getElementById("input-color-1").value = "#000000";
   document.getElementById("input-breed").value = "Select Breed";
   document.getElementById("input-vaccinated").checked = false;
   document.getElementById("input-dewormed").checked = false;

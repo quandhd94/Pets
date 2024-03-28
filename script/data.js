@@ -1,4 +1,12 @@
 "use strict";
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById("sidebar");
+  const sidebarToggleBtn = document.querySelector(".sidebar-header");
+
+  sidebarToggleBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("active");
+  });
+});
 // Export dữ liệu
 document.getElementById("export-btn").addEventListener("click", function () {
   // Lấy dữ liệu petArr và breedArr từ LocalStorage
